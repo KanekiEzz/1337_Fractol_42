@@ -1,15 +1,23 @@
-NAME = solong.a
+NAME = fractol.a
 CC = cc
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Wextra -Werror
 AR = ar -rc
 RM = rm -f
 
-SRC = so_long.c
+GREEN = \033[0;32m
+YELLOW = \033[0;33m
+BLUE = \033[0;34m
+RED = \033[0;31m
+RED = \033[0;31m
+NC = \033[0m  # No Color
 
-SRCSB = so_long_bonus.c
+SRCS =	./srcs/fractol.c \
+		./srcs/lib/ft_strcmp.c \
 
-OBJS = $(SRC:.c=o)
-OBJSB = $(SRCSB.c-o)
+SRCSB = ft_lstnew_bonus.c
+
+OBJS = $(SRCS:.c=.o)
+OBJSB = $(SRCSB:.c=.o)
 
 $(NAME): $(OBJS)
 	@echo "$(GREEN)Creating library...$(NC)"
@@ -34,25 +42,24 @@ $(NAME): $(OBJS)
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⢠⠸⡟⢲⣌⠻⣿⣿⣿⣷⣾⡿⠋⢁⣀⢸⡇⣾⣿⠣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\\n\
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡞⣰⣿⠀⣿⠈⣿⡿⢦⣉⣛⣋⡁⠤⢶⣿⡇⢸⠀⣿⣿⣧⣹⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀$(NC)"
 	@echo "$(BLUE)\
-	##    ##    ###    ##    ## ######## ##    ## #### \\n\
-	##   ##    ## ##   ###   ## ##       ##   ##   ##  \\n\
-	##  ##    ##   ##  ####  ## ##       ##  ##    ##  \\n\
-	#####    ##     ## ## ## ## ######   #####     ##  \\n\
-	##  ##   ######### ##  #### ##       ##  ##    ##  \\n\
-	##   ##  ##     ## ##   ### ##       ##   ##   ##  \\n\
-	##    ## ##     ## ##    ## ######## ##    ## #### $(NC)"
+        ##    ##    ###    ##    ## ######## ##    ## #### \\n\
+        ##   ##    ## ##   ###   ## ##       ##   ##   ##  \\n\
+        ##  ##    ##   ##  ####  ## ##       ##  ##    ##  \\n\
+        #####    ##     ## ## ## ## ######   #####     ##  \\n\
+        ##  ##   ######### ##  #### ##       ##  ##    ##  \\n\
+        ##   ##  ##     ## ##   ### ##       ##   ##   ##  \\n\
+        ##    ## ##     ## ##    ## ######## ##    ## #### $(NC)"
 	$(AR) $(NAME) $(OBJS)
 
-
-%.o: %.c so_long.h
+%.o: %.c ./includes/fractol.h
 		@echo -e "$(YELLOW)Compiling $<...$(NC)"
 		$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
-bounus: $(OBJSB)
-		@echo -e "$(GREEN)Building bonus objects...$(NC)"
-		$(AR) $(NAME) &(OBJSB)
+bonus: $(OBJSB)
+	@echo -e "$(GREEN)Building bonus objects...$(NC)"
+	$(AR) $(NAME) $(OBJSB)
 
 clean:
 	@echo  "$(YELLOW)Cleaning object files...$(NC)"
