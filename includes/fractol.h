@@ -31,7 +31,7 @@ typedef struct	s_complex
 
 // ./src/lib/..
 int	ft_strcmp(const char *s1, const char *s2);
-int	ft_atoi(const char *str);
+double	ft_atof(const char *str);
 size_t	ft_strlen(const char *s);
 
 

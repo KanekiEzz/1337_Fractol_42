@@ -27,14 +27,13 @@ void	parse_fractal(int ac, char **av)
 	}
 	else if (ac == 4 && ft_strcmp(av[1], "julia") == 0)
 	{
-		if (ft_atoi(av[2]) == 0 || ft_atoi(av[3]) == 0 || ft_strlen(av[2]) == 0
-			|| ft_strlen(av[3]) == 0)
-			write(1, "Please add valid numbers, example: -0.7269 0.1889\n", 49);
-		else
-			write(1, "See image Julia\n", 17);
-	}
-	else
-		write(1,"Usage: ./fractol julia <real> <imaginary> or ./fractol mandelbrot\n",70);
+        if (ft_atof(av[2]) == 0.0 || ft_atof(av[3]) == 0.0)
+            write(1, "Please add valid numbers, example: -0.7269 0.1889\n", 49);
+        else
+            write(1, "See image Julia\n", 17);
+    }
+    else
+        write(1, "Usage: ./fractol julia <real> <imaginary> or ./fractol mandelbrot\n", 70);
 }
 
 int	main(int ac, char **av)
