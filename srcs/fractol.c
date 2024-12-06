@@ -6,17 +6,13 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:50 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/06 21:31:01 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/06 22:14:00 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void	parse_fractal(void)
-{
-}
-
-int	main(int ac, char **av)
+void	parse_fractal(int ac, char **av)
 {
 	if (ac <= 1)
 		write(1, "Usage: ./fractol julia or ./fractol mandelbrot\n", 49);
@@ -31,12 +27,18 @@ int	main(int ac, char **av)
 	}
 	else if (ac == 4 && ft_strcmp(av[1], "julia") == 0)
 	{
-		if (ft_atoi(av[2]) == 0 || ft_atoi(av[3]) == 0 || ft_strlen(av[2]) == 0 || ft_strlen(av[3]) == 0)
+		if (ft_atoi(av[2]) == 0 || ft_atoi(av[3]) == 0 || ft_strlen(av[2]) == 0
+			|| ft_strlen(av[3]) == 0)
 			write(1, "Please add valid numbers, example: -0.7269 0.1889\n", 49);
 		else
 			write(1, "See image Julia\n", 17);
 	}
 	else
 		write(1,"Usage: ./fractol julia <real> <imaginary> or ./fractol mandelbrot\n",70);
+}
+
+int	main(int ac, char **av)
+{
+	parse_fractal(ac, av);
 	return (0);
 }
