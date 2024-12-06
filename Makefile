@@ -1,7 +1,7 @@
-NAME = fractol.a
+NAME = fractol
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-AR = ar -rc
+# AR = ar -rc
 RM = rm -f
 
 GREEN = \033[0;32m
@@ -12,12 +12,13 @@ RED = \033[0;31m
 NC = \033[0m  # No Color
 
 SRCS =	./srcs/fractol.c \
+		./srcs/lib/ft_strlen.c \
 		./srcs/lib/ft_strcmp.c \
-
-SRCSB = ft_lstnew_bonus.c
+		./srcs/lib/ft_atoi.c \
+# SRCSB = ft_lstnew_bonus.c
 
 OBJS = $(SRCS:.c=.o)
-OBJSB = $(SRCSB:.c=.o)
+# OBJSB = $(SRCSB:.c=.o)
 
 $(NAME): $(OBJS)
 	@echo "$(GREEN)Creating library...$(NC)"
@@ -49,7 +50,7 @@ $(NAME): $(OBJS)
         ##  ##   ######### ##  #### ##       ##  ##    ##  \\n\
         ##   ##  ##     ## ##   ### ##       ##   ##   ##  \\n\
         ##    ## ##     ## ##    ## ######## ##    ## #### $(NC)"
-	$(AR) $(NAME) $(OBJS)
+	$(CC)  $(OBJS) -o $(NAME)
 
 %.o: %.c ./includes/fractol.h
 		@echo -e "$(YELLOW)Compiling $<...$(NC)"
@@ -57,9 +58,9 @@ $(NAME): $(OBJS)
 
 all: $(NAME)
 
-bonus: $(OBJSB)
-	@echo -e "$(GREEN)Building bonus objects...$(NC)"
-	$(AR) $(NAME) $(OBJSB)
+# bonus: $(OBJSB)
+# 	@echo -e "$(GREEN)Building bonus objects...$(NC)"
+# 	$(CC) $(NAME) $(OBJSB)
 
 clean:
 	@echo  "$(YELLOW)Cleaning object files...$(NC)"
@@ -92,7 +93,7 @@ clean:
 	⣻⣿⣿⣿⣿⣿⣿⣷⣝⣛⡻⠟⠕⠁⣿⣿⡇⣿⣿⣻⣿⢸⣶⣿⣿⣷⡞⡵⢦⣿⢘⣛⣛⡿⢿⢃⣿⣿⣿⠯⣜⠀⡰⣿⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n\
 	⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⣿⣿⡇⣿⣯⡇⣿⣿⡇⣿⢸⣿⣿⣿⣿⣷⣜⢮⡻⣇⣿⣿⣿⣟⣼⡏⢍⢡⢎⣆⣼⣷⡌⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿\\n\
 	⢻⢿⣿⣿⣿⣿⣿⣿⣿⣿⡇⡿⢟⡾⢃⡝⣸⣿⣿⣷⠹⣾⣿⣿⣿⣿⣿⣿⣷⣽⡺⣘⣿⢏⣾⡿⡫⣨⣵⣿⡟⢿⣿⣿⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿$(NC)"
-	$(RM) $(OBJS) $(OBJSB)
+	$(RM) $(OBJS)
 
 fclean: clean
 	@echo -e "$(RED)Removing library...$(NC)"

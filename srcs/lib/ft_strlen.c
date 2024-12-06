@@ -1,38 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/06 09:32:42 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/06 21:45:17 by iezzam           ###   ########.fr       */
+/*   Created: 2024/12/06 21:07:52 by iezzam            #+#    #+#             */
+/*   Updated: 2024/12/06 21:10:15 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef FRACTOL_H 
-#define FRACTOL_H
+#include "../../includes/fractol.h"
 
-//+++++++++start forbidden++++++++
-#include <string.h>
-#include <stdio.h>
-//+++++++++end forbidden++++++++
-
-#include <unistd.h>
-#include <stdlib.h>
-# include <limits.h>
-
-typedef struct	s_complex
+size_t	ft_strlen(const char *s)
 {
-	double re;
-	double im;
-}				t_complex;
+	size_t i;
 
-
-// ./src/lib/..
-int	ft_strcmp(const char *s1, const char *s2);
-int	ft_atoi(const char *str);
-size_t	ft_strlen(const char *s);
-
-
-#endif
+	i = 0;
+	while (s[i++] != '\0')
+		;
+	return (--i);
+}

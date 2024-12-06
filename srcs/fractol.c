@@ -6,44 +6,37 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:50 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/06 12:12:39 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/06 21:31:01 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-void parse_fractal()
+void	parse_fractal(void)
 {
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	// t_complex	acav;
-	(void)ac;
-	(void)av;
-
 	if (ac <= 1)
-		write(1, "add this ./fractol julia or ./fractol mandelbrot\n", 49);
+		write(1, "Usage: ./fractol julia or ./fractol mandelbrot\n", 49);
 	else if (ac == 2)
 	{
 		if (ft_strcmp(av[1], "mandelbrot") == 0)
-		{
-			write(1, "see image mandelbrot\n", 21);
-		}
+			write(1, "See image Mandelbrot\n", 21);
+		else if (ft_strcmp(av[1], "julia") == 0)
+			write(1, "Usage: ./fractol julia <real> <imaginary>\n", 41);
 		else
-			return write(1, "add this ./fractol julia <number> <number> or ./fractol mandelbrot\n", 49);
+			write(1, "Usage: ./fractol julia or ./fractol mandelbrot\n", 49);
 	}
-	else if (ac == 4)
+	else if (ac == 4 && ft_strcmp(av[1], "julia") == 0)
 	{
-		if (ft_strcmp(av[2] , "julia") == 0)
-		{
-			write(1, "see image julia\n", 17);
-			if ((av[3]) == 0)
-				write(1, "should -number not --number or -+number\n", 41);
-		}
+		if (ft_atoi(av[2]) == 0 || ft_atoi(av[3]) == 0 || ft_strlen(av[2]) == 0 || ft_strlen(av[3]) == 0)
+			write(1, "Please add valid numbers, example: -0.7269 0.1889\n", 49);
+		else
+			write(1, "See image Julia\n", 17);
 	}
 	else
-		exit(0);
-	// parse_fractal(&acav, av[1]);
-	return 0;
+		write(1,"Usage: ./fractol julia <real> <imaginary> or ./fractol mandelbrot\n",70);
+	return (0);
 }
