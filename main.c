@@ -18,7 +18,7 @@ int main ()
     {
         // General formula
         // z = z^2 + c
-        tmp_real = (z.real * z.real) - (z.im * z.im); //  + c.real
+        tmp_real = (z.real * z.real) - (z.im * z.im);
         z.im = 2 * z.real * z.im;
         z.real = tmp_real;
 
