@@ -12,7 +12,7 @@
 
 #include "../../includes/fractol.h"
 
-static int	_check_overflow(int sign)
+static int _check_overflow(int sign)
 {
 	if (sign == 1)
 		return (-1);
@@ -20,9 +20,9 @@ static int	_check_overflow(int sign)
 		return (0);
 }
 
-int	is_digit(const char *str)
+int is_digit(const char *str)
 {
-	int	check;
+	int check;
 
 	check = 1;
 	while (*str)
@@ -30,7 +30,7 @@ int	is_digit(const char *str)
 		if (!(*str >= '0' && *str <= '9') && *str != '.')
 		{
 			check = 0;
-			break ;
+			break;
 		}
 		check = 1;
 		str++;
@@ -40,25 +40,39 @@ int	is_digit(const char *str)
 	return (1);
 }
 
-double	ft_atof(const char *str)
+double chech_point(const char *str)
 {
-	double	result;
-	double	frac_part;
-	int		sign;
-	int		decimal_found;
+	int point = 0;
+	while (*str)
+	{
+		if (*str == '.')
+			point++;
+		str++;
+	}
+	if(point > 1)
+		return 0.0;
+	return 1;
+}
+
+double ft_atof(const char *str)
+{
+	double result;
+	int sign;
 
 	result = 0.0;
-	frac_part = 0.0;
 	sign = 1;
-	decimal_found = 0;
 	if (!*str)
 		return (0.0);
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
+	if (!(chech_point(str) == 1))
+		return (0.0);
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
 			sign = -1;
+		if (*(str + 1) == '.')
+			return (0.0);
 		str++;
 	}
 	if (is_digit(str) == 0 || (*str == '.' && !(*(str + 1) >= '0' && *(str + 1) <= '9')))
@@ -74,7 +88,7 @@ double	ft_atof(const char *str)
 	{
 		str++;
 		double fraction = 0.1;
-		while(*str >= '0' && *str <= '9')
+		while (*str >= '0' && *str <= '9')
 		{
 			result += (*str - '0') * fraction;
 			fraction *= 0.1;

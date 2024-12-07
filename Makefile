@@ -14,7 +14,7 @@ NC = \033[0m  # No Color
 SRCS =	./srcs/fractol.c \
 		./srcs/lib/ft_strlen.c \
 		./srcs/lib/ft_strcmp.c \
-		./srcs/lib/ft_atoi.c \
+		./srcs/lib/ft_atof.c \
 # SRCSB = ft_lstnew_bonus.c
 
 OBJS = $(SRCS:.c=.o)
