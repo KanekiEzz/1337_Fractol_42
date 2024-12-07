@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:50 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/06 22:14:00 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/07 22:52:59 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,25 @@
 void	parse_fractal(int ac, char **av)
 {
 	if (ac <= 1)
-		write(1, "Usage: ./fractol julia or ./fractol mandelbrot\n", 47);
+		ft_putstr("Usage: ./fractol julia or ./fractol mandelbrot\n");
 	else if (ac == 2)
 	{
 		if (ft_strcmp(av[1], "mandelbrot") == 0)
-			write(1, "See image Mandelbrot\n", 21);
+			ft_putstr("See image Mandelbrot\n");
 		else if (ft_strcmp(av[1], "julia") == 0)
-			write(1, "Usage: ./fractol julia <real> <imaginary>\n", 42);
+			ft_putstr("Usage: ./fractol julia <real> <imaginary>\n");
 		else
-			write(1, "Usage: ./fractol julia or ./fractol mandelbrot\n", 47);
+			ft_putstr("Usage: ./fractol julia or ./fractol mandelbrot\n");
 	}
 	else if (ac == 4 && ft_strcmp(av[1], "julia") == 0)
 	{
         if (ft_atof(av[2]) == 0.0 || ft_atof(av[3]) == 0.0)
-            write(1, "Please add valid numbers, example: -0.7269 0.1889\n", 50);
+			ft_putstr("Please add valid numbers, example: -0.7269 0.1889\n");
         else
-            write(1, "See image Julia\n", 17);
+			ft_putstr( "See image Julia\n");
     }
     else
-        write(1, "Usage: ./fractol julia <real> <imaginary> or ./fractol mandelbrot\n", 66);
+		ft_putstr("Usage: ./fractol julia <real> <imaginary> or ./fractol mandelbrot\n");
 }
 
 int	main(int ac, char **av)

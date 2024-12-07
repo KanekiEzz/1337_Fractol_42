@@ -1,6 +1,6 @@
 NAME = fractol
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror 
 # AR = ar -rc
 RM = rm -f
 
@@ -15,6 +15,8 @@ SRCS =	./srcs/fractol.c \
 		./srcs/lib/ft_strlen.c \
 		./srcs/lib/ft_strcmp.c \
 		./srcs/lib/ft_atof.c \
+		./srcs/lib/ft_putchar.c \
+		./srcs/lib/ft_putstr.c \
 # SRCSB = ft_lstnew_bonus.c
 
 OBJS = $(SRCS:.c=.o)
