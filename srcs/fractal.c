@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.c                                          :+:      :+:    :+:   */
+/*   fractal.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:50 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/08 14:44:44 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/08 22:47:16 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,42 @@ void	parse_fractal(int ac, char **av)
 		ft_putstr("Usage: ./fractol julia <real> <imaginary> or ./fractol mandelbrot\n");
 }
 
+// int	main(int ac, char **av)
+// {
+// 	t_fractal fractal;
+
+// 	// parse_fractal(ac, av);
+
+// 	fractal_init(&fractal);
+// 	// fractal_render(&fractal);
+// 	mlx_loop(fractal.mlx_connection);
+
+// 	return (0);
+// }
+
+
 int	main(int ac, char **av)
 {
-	t_fractal fractal;
+	t_fractal	fractal;
 
-	parse_fractal(ac, av);
 
-	fractal_init(&fractal);
-	fractal_render(&fractal);
-	mlx_loop(fractal.mlx_connection);
-
-	return (0);
+		printf(":kaneki");
+	if ((2 == ac && !ft_strcmp(av[1], "mandelbrot")) || (4 == ac && !ft_strcmp(av[1], "julia")))
+	{
+		fractal.name = av[1];
+		//TL;DR
+		//Prompt correct, kick off the application
+		//1)
+		fractal_init(&fractal);
+		//2)
+		fractal_render(&fractal);
+		//3)
+		mlx_loop(fractal.mlx_connection);
+	}
+	else
+	{
+		printf("l3almya :kaneki");
+		ft_putstr(ERROR_MESSAGE);
+		exit(EXIT_FAILURE);
+	}
 }
