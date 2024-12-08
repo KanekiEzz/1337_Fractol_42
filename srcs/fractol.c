@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:50 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/07 22:52:59 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/08 14:44:44 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ void	parse_fractal(int ac, char **av)
 
 int	main(int ac, char **av)
 {
+	t_fractal fractal;
+
 	parse_fractal(ac, av);
+
+	fractal_init(&fractal);
+	fractal_render(&fractal);
+	mlx_loop(fractal.mlx_connection);
+
 	return (0);
 }

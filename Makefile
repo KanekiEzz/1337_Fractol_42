@@ -1,6 +1,6 @@
 NAME = fractol
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror -Lminilibx-linux -lmlx_Linux -lX11 -lXext
 # AR = ar -rc
 RM = rm -f
 
@@ -12,6 +12,7 @@ RED = \033[0;31m
 NC = \033[0m  # No Color
 
 SRCS =	./srcs/fractol.c \
+		./srcs/fractal_init.c \
 		./srcs/lib/ft_strlen.c \
 		./srcs/lib/ft_strcmp.c \
 		./srcs/lib/ft_atof.c \
