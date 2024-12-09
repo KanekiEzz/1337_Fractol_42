@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:50 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/09 02:24:53 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 04:36:09 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,11 @@ int	main(int ac, char **av)
 	if ((2 == ac && !ft_strcmp(av[1], "mandelbrot")) || (4 == ac && !ft_strcmp(av[1], "julia")))
 	{
 		fractal.name = av[1];
+		if (!ft_strcmp(fractal.name, "julia"))
+		{
+			fractal.julia_x = atodbl(av[2]);
+			fractal.julia_y = atodbl(av[3]);
+		}
 		//TL;DR
 		//Prompt correct, kick off the application
 		//1)

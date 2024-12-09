@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 23:18:51 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/09 03:08:06 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 04:46:34 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ int key_handler(int keycode, t_fractal *fractal)
     else if (keycode == XK_Right)
         fractal->shift_x -= (0.5 * fractal->zoom);
     else if (keycode == XK_Up)
-        fractal->shift_y -= 0.5;
+        fractal->shift_y -= (0.5 * fractal->zoom);
     else if (keycode == XK_Down)
-        fractal->shift_y += 0.5;
+        fractal->shift_y += (0.5 * fractal->zoom);
     else if (keycode == XK_0) // 0
         fractal->max_iter += 10;
     else if (keycode == XK_minus) // -
@@ -69,18 +69,30 @@ int mouse_handler(int button, int x, int y, t_fractal *fractal)
     // zoom in
     if (button == Button5) // Scroll up (zoom in)
     {
-        fractal->zoom *= 0.96; // Increase the zoom level
-        // fractal->shift_x += ((x - (fractal->width / 2)) / fractal->zoom) / fractal->width;
-        // fractal->shift_y += ((y - (fractal->height / 2)) / fractal->zoom) / fractal->height;
+        fractal->zoom *= 0.95; // Increase the zoom level
     }
     // zoom out
     else if (button == Button4) // Scroll down (zoom out)
     {
         fractal->zoom *= 1.05; // Decrease the zoom level
-        // fractal->shift_x -= ((x - (fractal->width / 2)) / fractal->zoom) / fractal->width;
-        // fractal->shift_y -= ((y - (fractal->height / 2)) / fractal->zoom) / fractal->height;
     }
 
     fractal_render(fractal); // Redraw the fractal with updated parameters
     return 0;
+}
+
+/*
+ * TRACK the mouse
+ * to change julia dynamically
+ * int (*f)(int x, int y, void *param)
+*/
+int	julia_track(int x, int y, t_fractal *fractal)
+{
+	if (!ft_strcmp(fractal->name, "julia"))
+	{
+		fractal->julia_x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom) + fractal->shift_x;
+		fractal->julia_y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom) + fractal->shift_y;
+		fractal_render(fractal);
+	}
+	return 0;
 }

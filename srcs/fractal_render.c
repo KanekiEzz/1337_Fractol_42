@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 14:47:24 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/09 02:54:31 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 04:40:18 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,25 @@ static void my_pixel_put(int x, int y, t_imag *img, int color)
 
     *(unsigned int *)(img->pixels_ptr + offset) = color;
 }
+
+
+/*
+ * EASY TOGGLE mandel & julia
+*/
+static void	mandel_vs_julia(t_complex *z, t_complex *c, t_fractal *fractal)
+{	
+	if (!ft_strcmp(fractal->name, "julia"))
+	{
+		c->x = fractal->julia_x;
+		c->y = fractal->julia_y;
+	}
+	else
+	{
+		c->x = z->x;
+		c->y = z->y;
+	}
+}
+
 static void handel_pixel(int x, int y, t_fractal *fractal)
 {
     t_complex z;
@@ -32,14 +51,14 @@ static void handel_pixel(int x, int y, t_fractal *fractal)
     int color;
 
     i = 0;
-    z.x = 0.0;
-    z.y = 0.0;
 
     // pixel coordinate x & y scaled to fit mandel needs
                                         
-    c.x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom)+ fractal->shift_x ; // ta7akoum f mouse in shift->x
-    c.y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom)+ fractal->shift_y;  // ta7akoum f mouse in shift->y
+    z.x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom)+ fractal->shift_x ; // ta7akoum f mouse in shift->x
+    z.y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom)+ fractal->shift_y;  // ta7akoum f mouse in shift->y
 
+    mandel_vs_julia(&z, &c, fractal);
+    
     // How many times you want to iterate z^2 + c
     // to check if the point escaped?
     // Max iterations:
@@ -76,6 +95,12 @@ static void handel_pixel(int x, int y, t_fractal *fractal)
  *      Z = Z^2 + C
  *      Z = initially is (0, 0)
  *      c is the actual point on the complex plane
+ * 
+ * z = z^2 + c => z 1 = c + c
+ * 
+ *      julia 
+ *      ./fractal julia <real> <i>
+ *      z = z^2 + c
  */
 
 void fractal_render(t_fractal *fractal)

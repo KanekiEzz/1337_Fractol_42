@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 14:01:35 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/09 02:50:26 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 04:47:53 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,12 @@ void event_init(t_fractal *fractal)
         StructureNotifyMask,
         close_handler, // todo
         fractal);
+
+    mlx_hook(fractal->mlx_window,
+    MotionNotify,
+    PointerMotionMask,
+    julia_track, // todo
+    fractal);
 }
 
 // INIT FUNCTION

@@ -6,6 +6,7 @@ RM = rm -f
 
 
 SRCS =	./srcs/fractal.c \
+		./srcs/string_utils.c \
 		./srcs/fractal_init.c \
 		./srcs/fractal_render.c \
 		./srcs/fractal_event.c \

@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:42 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/09 02:49:15 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 04:47:37 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ void fractal_render(t_fractal *fractal);	/*render  fractal*/
 int key_handler(int keycode, t_fractal *fractal);	/*=====hooks_event=====*/
 int close_handler(t_fractal *fractal); /*=====clean_up close windows=====*/
 int mouse_handler(int button, int x, int y, t_fractal *fractal); /*=====mouse handler=====*/
+int	julia_track(int x, int y, t_fractal *fractal);	/*=====change dynamically in mouse=====*/
 
 // ./scs ++++++++++++math++++++++++++
 double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
@@ -130,5 +131,7 @@ int	ft_strcmp(const char *s1, const char *s2);
 double	ft_atof(const char *str);
 size_t	ft_strlen(const char *s);
 
+
+double	atodbl(char *s);
 
 #endif
