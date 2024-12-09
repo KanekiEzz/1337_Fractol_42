@@ -6,11 +6,11 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 11:23:03 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/06 11:23:04 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 02:12:17 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fractol.h"
+#include "../../includes/fractal.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

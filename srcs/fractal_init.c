@@ -6,11 +6,11 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 14:01:35 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/08 22:54:19 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 02:50:26 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/fractal.h"
 
 /*
     if MALLOC goes bad (improbable)
@@ -25,7 +25,35 @@ static void malloc_error(void)
 void data_init(t_fractal *fractal)
 {
     fractal->escape_value = 4; // 2 ^ 2, my hypotenuse
-    fractal->max_iter = 42; // see point(img) mandelbrot in julia
+    fractal->max_iter = 42;    // see point(img) mandelbrot in julia
+
+    //shift keyboard
+    fractal->shift_x = 0.0;
+    fractal->shift_y = 0.0;
+
+    // zoom mouse
+    fractal->zoom = 1.0;
+}
+
+void event_init(t_fractal *fractal)
+{
+    mlx_hook(fractal->mlx_window,
+            KeyPress,
+            KeyPressMask,
+            key_handler, // todo
+            fractal);
+
+    mlx_hook(fractal->mlx_window,
+            ButtonPress,
+            ButtonPressMask,
+            mouse_handler, // todo
+            fractal);
+
+    mlx_hook(fractal->mlx_window,
+        DestroyNotify,
+        StructureNotifyMask,
+        close_handler, // todo
+        fractal);
 }
 
 // INIT FUNCTION
@@ -58,6 +86,6 @@ void fractal_init(t_fractal *fractal)
                                                 &fractal->img.bpp,
                                                 &fractal->img.line_length,
                                                 &fractal->img.endian);
-    // event_init(fractal); //TODO
-    data_init(fractal); //TODO
+    event_init(fractal);
+    data_init(fractal);
 }

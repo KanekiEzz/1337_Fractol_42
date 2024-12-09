@@ -8,6 +8,7 @@ RM = rm -f
 SRCS =	./srcs/fractal.c \
 		./srcs/fractal_init.c \
 		./srcs/fractal_render.c \
+		./srcs/fractal_event.c \
 		./srcs/math_utils.c \
 		./srcs/lib/ft_strlen.c \
 		./srcs/lib/ft_strcmp.c \
@@ -20,7 +21,7 @@ OBJS = $(SRCS:.c=.o)
 $(NAME): $(OBJS)
 	$(CC)  $(OBJS) -o $(NAME) $(CFLAGS)
 
-%.o: %.c ./includes/fractol.h
+%.o: %.c ./includes/fractal.h
 		$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)

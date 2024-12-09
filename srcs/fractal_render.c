@@ -6,11 +6,11 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 14:47:24 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/08 22:59:33 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 02:54:31 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/fractal.h"
 
 /*
  *   Put a pixel on the image with the color of the point
@@ -36,8 +36,9 @@ static void handel_pixel(int x, int y, t_fractal *fractal)
     z.y = 0.0;
 
     // pixel coordinate x & y scaled to fit mandel needs
-    c.x = map(x, -2, +2, 0, WIDTH);
-    c.y = map(y, +2, -2, 0, HEIGHT);
+                                        
+    c.x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom)+ fractal->shift_x ; // ta7akoum f mouse in shift->x
+    c.y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom)+ fractal->shift_y;  // ta7akoum f mouse in shift->y
 
     // How many times you want to iterate z^2 + c
     // to check if the point escaped?

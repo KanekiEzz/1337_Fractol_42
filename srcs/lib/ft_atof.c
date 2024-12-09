@@ -6,11 +6,11 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 11:22:54 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/07 22:54:19 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 02:12:01 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fractol.h"
+#include "../../includes/fractal.h"
 
 static int _check_overflow(int sign)
 {

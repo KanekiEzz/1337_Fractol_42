@@ -6,11 +6,11 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:50 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/08 22:47:16 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 02:24:53 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/fractal.h"
 
 void	parse_fractal(int ac, char **av)
 {
@@ -55,7 +55,7 @@ int	main(int ac, char **av)
 	t_fractal	fractal;
 
 
-		printf(":kaneki");
+		printf(":kaneki\n");
 	if ((2 == ac && !ft_strcmp(av[1], "mandelbrot")) || (4 == ac && !ft_strcmp(av[1], "julia")))
 	{
 		fractal.name = av[1];
@@ -70,7 +70,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		printf("l3almya :kaneki");
+		printf("l3almya :kaneki\n");
 		ft_putstr(ERROR_MESSAGE);
 		exit(EXIT_FAILURE);
 	}

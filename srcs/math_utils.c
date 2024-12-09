@@ -6,11 +6,11 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:10:16 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/08 19:22:32 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 02:12:49 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/fractal.h"
 
 
 /*

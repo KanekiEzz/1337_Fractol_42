@@ -6,11 +6,11 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 21:07:52 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/06 22:11:33 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 02:12:14 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/fractol.h"
+#include "../../includes/fractal.h"
 
 size_t	ft_strlen(const char *s)
 {

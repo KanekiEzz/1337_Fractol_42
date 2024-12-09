@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractal.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:42 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/08 22:57:42 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/09 02:49:15 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <X11/X.h>
+#include <X11/keysym.h>
 #include "../minilibx-linux/mlx.h"
-// #include "../minilibx-linux/mlx_int.h"
 
 #define ERROR_MESSAGE "Please enter \n\t\"./fractol mandelbrot\" or \n\t\"./fractol julia <value_1> <value_2>\"\n"
 
@@ -88,9 +89,15 @@ typedef struct s_fractal
 	double escape_value; //hypotenuse
 	int max_iter; // max iterations | value tight with the image quality and rendering speed
 
+	// shift
+	double	shift_x;
+	double	shift_y;
+
 
 	double	julia_x;
 	double	julia_y;
+	
+	double zoom;
 } t_fractal;
 
 
@@ -107,8 +114,11 @@ typedef struct	s_complex
 // ./src/
 void fractal_init(t_fractal *fractal);		/* init fractal */
 void fractal_render(t_fractal *fractal);	/*render  fractal*/
+int key_handler(int keycode, t_fractal *fractal);	/*=====hooks_event=====*/
+int close_handler(t_fractal *fractal); /*=====clean_up close windows=====*/
+int mouse_handler(int button, int x, int y, t_fractal *fractal); /*=====mouse handler=====*/
 
-// ./scs math
+// ./scs ++++++++++++math++++++++++++
 double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 t_complex sum_complex(t_complex a, t_complex b);
 t_complex square_complex(t_complex a);
