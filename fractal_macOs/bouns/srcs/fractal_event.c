@@ -25,18 +25,18 @@ int key_handler(int keycode, t_fractal *fractal)
     printf("%d\n", keycode);
     if (keycode == 53)
         close_handler(fractal);
-    // if (keycode == 124)
-    //     fractal->shift_x += (0.5 * fractal->zoom);
-    // else if (keycode == 123)
-    //     fractal->shift_x -= (0.5 * fractal->zoom);
-    // else if (keycode == 126)
-    //     fractal->shift_y -= (0.5 * fractal->zoom);
-    // else if (keycode == 125)
-    //     fractal->shift_y += (0.5 * fractal->zoom);
-    // else if (keycode == 24) // 0
-    //     fractal->max_iter += 10;
-    // else if (keycode == 27) // -
-    //     fractal->max_iter -= 10;
+    if (keycode == 124)
+        fractal->shift_x += (0.5 * fractal->zoom);
+    else if (keycode == 123)
+        fractal->shift_x -= (0.5 * fractal->zoom);
+    else if (keycode == 126)
+        fractal->shift_y -= (0.5 * fractal->zoom);
+    else if (keycode == 125)
+        fractal->shift_y += (0.5 * fractal->zoom);
+    else if (keycode == 24) // 0
+        fractal->max_iter += 10;
+    else if (keycode == 27) // -
+        fractal->max_iter -= 10;
 
     fractal_render(fractal);
 
