@@ -37,21 +37,21 @@ static void	mandel_vs_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 
 static void handel_pixel(int x, int y, t_fractal *fractal)
 {
-    t_complex z;
+    t_complex point;
     t_complex c;
     int i;
     int color;
 
     i = 0;                                 
-    z.x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom)+ fractal->shift_x ;
-    z.y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom)+ fractal->shift_y;
+    point.x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom);
+    point.y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom);
 
-    mandel_vs_julia(&z, &c, fractal);
+    mandel_vs_julia(&point, &c, fractal);
 
     while (i < fractal->max_iter)
     {
-        z = sum_complex(square_complex(z), c);
-        if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
+        point = sum_complex(square_complex(point), c);
+        if ((point.x * point.x) + (point.y * point.y) > fractal->escape_value)
         {
             color = map(i, BLACK, 0x0F030507, 0, 256);
             my_pixel_put(x, y, &fractal->img, color);
@@ -67,14 +67,16 @@ void fractal_render(t_fractal *fractal)
     int x;
     int y;
 
-    y = -1;
-    while (++y < HEIGHT)
+    y = 0;
+    while (y < HEIGHT)
     {
-        x = -1;
-        while (++x < WIDTH)
+        x = 0;
+        while (x < WIDTH)
         {
             handel_pixel(x, y, fractal);
+            x++;
         }
+        y++;
     }
     mlx_put_image_to_window(fractal->mlx_connection,
                             fractal->mlx_window,

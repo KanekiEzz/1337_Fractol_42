@@ -3,38 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   fractal.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kaneki <kaneki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:50 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/09 04:36:09 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/20 22:20:58 by kaneki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractal.h"
 
-void	parse_fractal(int ac, char **av)
-{
-	if (ac <= 1)
-		ft_putstr("Usage: ./fractol julia or ./fractol mandelbrot\n");
-	else if (ac == 2)
-	{
-		if (ft_strcmp(av[1], "mandelbrot") == 0)
-			ft_putstr("See image Mandelbrot\n");
-		else if (ft_strcmp(av[1], "julia") == 0)
-			ft_putstr("Usage: ./fractol julia <real> <imaginary>\n");
-		else
-			ft_putstr("Usage: ./fractol julia or ./fractol mandelbrot\n");
-	}
-	else if (ac == 4 && ft_strcmp(av[1], "julia") == 0)
-	{
-        if (ft_atof(av[2]) == 0.0 || ft_atof(av[3]) == 0.0)
-			ft_putstr("Please add valid numbers, example: -0.7269 0.1889\n");
-        else
-			ft_putstr( "See image Julia\n");
-    }
-    else
-		ft_putstr("Usage: ./fractol julia <real> <imaginary> or ./fractol mandelbrot\n");
-}
+// void	parse_fractal(int ac, char **av)
+// {
+// 	if (ac <= 1)
+// 		ft_putstr("Usage: ./fractol julia or ./fractol mandelbrot\n");
+// 	else if (ac == 2)
+// 	{
+// 		if (ft_strcmp(av[1], "mandelbrot") == 0)
+// 			ft_putstr("See image Mandelbrot\n");
+// 		else if (ft_strcmp(av[1], "julia") == 0)
+// 			ft_putstr("Usage: ./fractol julia <real> <imaginary>\n");
+// 		else
+// 			ft_putstr("Usage: ./fractol julia or ./fractol mandelbrot\n");
+// 	}
+// 	else if (ac == 4 && ft_strcmp(av[1], "julia") == 0)
+// 	{
+//         if (ft_atof(av[2]) == 0.0 || ft_atof(av[3]) == 0.0)
+// 			ft_putstr("Please add valid numbers, example: -0.7269 0.1889\n");
+//         else
+// 			ft_putstr( "See image Julia\n");
+//     }
+//     else
+// 		ft_putstr("Usage: ./fractol julia <real> <imaginary> or ./fractol mandelbrot\n");
+// }
 
 // int	main(int ac, char **av)
 // {
@@ -50,8 +50,11 @@ void	parse_fractal(int ac, char **av)
 // }
 
 
+void f(){system("leaks fractal");}
+
 int	main(int ac, char **av)
 {
+	atexit(f);
 	t_fractal	fractal;
 
 
@@ -64,13 +67,8 @@ int	main(int ac, char **av)
 			fractal.julia_x = atodbl(av[2]);
 			fractal.julia_y = atodbl(av[3]);
 		}
-		//TL;DR
-		//Prompt correct, kick off the application
-		//1)
 		fractal_init(&fractal);
-		//2)
 		fractal_render(&fractal);
-		//3)
 		mlx_loop(fractal.mlx_connection);
 	}
 	else

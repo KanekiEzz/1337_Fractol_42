@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kaneki <kaneki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 14:01:35 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/12 23:11:29 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/21 02:23:14 by kaneki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static void malloc_error(void)
 
 void data_init(t_fractal *fractal)
 {
-    fractal->escape_value = 4; // 2 ^ 2, my hypotenuse
-    fractal->max_iter = 24;    // see point(img) mandelbrot in julia
+    fractal->escape_value = 4;
+    fractal->max_iter = 24;
 
     //shift keyboard
     fractal->shift_x = 0.0;
@@ -54,7 +54,6 @@ void fractal_init(t_fractal *fractal)
     fractal->mlx_window = mlx_new_window(fractal->mlx_connection, WIDTH, HEIGHT, fractal->name);
     if (NULL == fractal->mlx_window)
     {
-        // mlx_destroy_(fractal->mlx_connection);
         free(fractal->mlx_connection);
         malloc_error();
     }
@@ -63,7 +62,6 @@ void fractal_init(t_fractal *fractal)
     if (NULL == fractal->img.img_ptr)
     {
         mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
-        // mlx_destroy_display(fractal->mlx_connection);
         free(fractal->mlx_connection);
         malloc_error();
     }

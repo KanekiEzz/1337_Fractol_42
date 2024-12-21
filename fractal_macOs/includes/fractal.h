@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kaneki <kaneki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:42 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/09 06:26:40 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/21 02:29:07 by kaneki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,61 +55,40 @@
 #define LAVA_RED        0xFF3300  // A bright, molten red
 
 
-/*
-	Image
-	This is basically a pixels buffer
-	values from from mlx_get_data_addr()
-*/
 typedef struct s_img
 {
-	void	*img_ptr; // pointer to image stuct
-	char	*pixels_ptr; // points to the actual pixels
+	void	*img_ptr;
+	char	*pixels_ptr;
 	int		bpp;
 	int		endian;
 	int		line_length;
 } t_imag;
 
-
-/*
-	Fractol id
-	MLX stuff
-	Image
-	Hooks values
-*/
 typedef struct s_fractal
 {
 	char *name;
-	//MLX
-	void *mlx_connection;  // mlx_init()
-	void *mlx_window; // mlx_new_window()
-	// image
+	void *mlx_connection;
+	void *mlx_window;
 	t_imag img;
 
-	// Hokks member variables
-	double escape_value; //hypotenuse
-	int max_iter; // max iterations | value tight with the image quality and rendering speed
-
-	// shift
-	double	shift_x;
-	double	shift_y;
-
-
+	double escape_value;
+	int max_iter;
+	
 	double	julia_x;
 	double	julia_y;
 	
 	double zoom;
 } t_fractal;
 
-
-/*
-*	complex value
-*/
-
 typedef struct	s_complex
 {
-	double x; // real
-	double y; // imag
+	double x;
+	double y;
 }				t_complex;
+
+
+
+
 
 // ./src/
 void fractal_init(t_fractal *fractal);		/* init fractal */

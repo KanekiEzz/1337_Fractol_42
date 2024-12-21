@@ -1,7 +1,7 @@
 NAME = fractal
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-LDFLAGS = -lmlx -framework OpenGL -framework AppKit -lm
+CFLAGS = -Wall -Wextra -Werror -O3
+LDFLAGS = -lmlx -framework OpenGL -framework AppKit -lm -O3
 RM = rm -f
 
 SRCS =	./srcs/fractal.c \

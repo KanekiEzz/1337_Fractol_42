@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_event.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kaneki <kaneki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 23:18:51 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/12 23:09:38 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/20 23:13:14 by kaneki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int key_handler(int keycode, t_fractal *fractal)
         fractal->max_iter += 10;
     else if (keycode == 27) // -
         fractal->max_iter -= 10;
-
+    mlx_clear_window(fractal->mlx_connection, fractal->mlx_window);
     fractal_render(fractal);
 
     return 0;

@@ -3,21 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   string_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kaneki <kaneki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 04:33:22 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/09 04:34:17 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/20 23:15:37 by kaneki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractal.h"
 
-/*
- * ALPHA TO DOUBLE
- * similar to atoi, but dealing with floats
- * takes the cmnd line args and
- * converts to long double (typedef ldbl)
-*/
 double	atodbl(char *s)
 {
 	long	integer_part;

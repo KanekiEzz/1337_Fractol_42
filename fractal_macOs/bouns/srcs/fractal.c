@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kaneki <kaneki@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:50 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/09 04:36:09 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/21 02:22:53 by kaneki           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,8 @@ int	main(int ac, char **av)
 			fractal.julia_x = atodbl(av[2]);
 			fractal.julia_y = atodbl(av[3]);
 		}
-		//TL;DR
-		//Prompt correct, kick off the application
-		//1)
 		fractal_init(&fractal);
-		//2)
 		fractal_render(&fractal);
-		//3)
 		mlx_loop(fractal.mlx_connection);
 	}
 	else
