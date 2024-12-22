@@ -6,13 +6,13 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 23:18:51 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/22 07:34:52 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/22 13:41:22 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractal.h"
 
-int close_handler(t_fractal *fractal)
+int	close_handler(t_fractal *fractal)
 {
     mlx_destroy_image(fractal->mlx_connection, fractal->img.img_ptr);
     mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
@@ -49,13 +49,12 @@ int mouse_handler(int button, int x, int y, t_fractal *fractal)
     (void)x;
     (void)y;
     // zoom in
-    if (button == 5) // Scroll up (zoom in)
-        fractal->zoom *= 0.95; // Increase the zoom level
-    // zoom out
-    else if (button == 4) // Scroll down (zoom out)
-        fractal->zoom *= 1.05; // Decrease the zoom level
+    if (button == 5)
+        fractal->zoom *= 0.95;
+    else if (button == 4)
+        fractal->zoom *= 1.05;
 
-    fractal_render(fractal); // Redraw the fractal with updated parameters
+    fractal_render(fractal);
     return 0;
 }
 

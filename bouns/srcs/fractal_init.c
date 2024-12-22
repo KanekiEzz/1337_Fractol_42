@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 14:01:35 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/22 07:34:57 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/22 13:41:38 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,24 +23,17 @@ void data_init(t_fractal *fractal)
     fractal->escape_value = 4;
     fractal->max_iter = 24;
 
-    //shift keyboard
     fractal->shift_x = 0.0;
     fractal->shift_y = 0.0;
 
-    // zoom mouse
     fractal->zoom = 1.0;
 }
 
 void event_init(t_fractal *fractal)
 {
-    // Keyboard events
     mlx_hook(fractal->mlx_window, 2, 1L, key_handler, fractal);
-
-    // Mouse click events
     mlx_hook(fractal->mlx_window, 4, 1L << 2, mouse_handler, fractal);
-
     mlx_hook(fractal->mlx_window,  17, 1L << 17, close_handler, fractal);
-
     mlx_hook(fractal->mlx_window, 6, 1L << 6, julia_track, fractal);
 }
 
