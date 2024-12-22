@@ -9,7 +9,6 @@ SRCS =	./srcs/fractal.c \
 		./srcs/fractal_init.c \
 		./srcs/fractal_render.c \
 		./srcs/math_utils.c \
-		./srcs/string_utils.c \
 		./srcs/lib/ft_strlen.c \
 		./srcs/lib/ft_strcmp.c \
 		./srcs/lib/ft_atof.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaneki <kaneki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:50 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/21 02:22:53 by kaneki           ###   ########.fr       */
+/*   Updated: 2024/12/21 03:28:16 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,10 @@ void	parse_fractal(int ac, char **av)
 		ft_putstr("Usage: ./fractol julia <real> <imaginary> or ./fractol mandelbrot\n");
 }
 
-// int	main(int ac, char **av)
-// {
-// 	t_fractal fractal;
-
-// 	// parse_fractal(ac, av);
-
-// 	fractal_init(&fractal);
-// 	// fractal_render(&fractal);
-// 	mlx_loop(fractal.mlx_connection);
-
-// 	return (0);
-// }
-
-
 int	main(int ac, char **av)
 {
 	t_fractal	fractal;
 
-
-		printf(":kaneki\n");
 	if ((2 == ac && !ft_strcmp(av[1], "mandelbrot")) || (4 == ac && !ft_strcmp(av[1], "julia")))
 	{
 		fractal.name = av[1];
@@ -70,7 +54,6 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		printf("l3almya :kaneki\n");
 		ft_putstr(ERROR_MESSAGE);
 		exit(EXIT_FAILURE);
 	}

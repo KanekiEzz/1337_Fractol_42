@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kaneki <kaneki@student.42.fr>              +#+  +:+       +#+        */
+/*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 14:01:35 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/21 02:30:30 by kaneki           ###   ########.fr       */
+/*   Updated: 2024/12/21 04:37:46 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void data_init(t_fractal *fractal)
 {
     fractal->escape_value = 4;
     fractal->max_iter = 100;
-
     fractal->zoom = 1.0;
 }
 
@@ -47,7 +46,6 @@ void fractal_init(t_fractal *fractal)
         malloc_error();
     }
     fractal->img.img_ptr = mlx_new_image(fractal->mlx_connection, WIDTH, HEIGHT);
-
     if (NULL == fractal->img.img_ptr)
     {
         mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
