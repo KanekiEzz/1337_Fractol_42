@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:42 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/09 06:26:40 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/23 16:56:06 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ int mouse_handler(int button, int x, int y, t_fractal *fractal); /*=====mouse ha
 int	julia_track(int x, int y, t_fractal *fractal);	/*=====change dynamically in mouse=====*/
 
 // ./scs ++++++++++++math++++++++++++
-double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
+double map(double point, double new_min, double new_max, double old_max);
 t_complex sum_complex(t_complex a, t_complex b);
 t_complex square_complex(t_complex a);
 

@@ -6,15 +6,15 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:10:16 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/22 07:35:06 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/23 16:57:45 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractal.h"
 
-double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max)
+double map(double point, double new_min, double new_max, double old_max)
 {
-    return new_min + (new_max - new_min) * (unscaled_num - old_min) / (old_max - old_min);
+	return (new_min + ((new_max - new_min) * (point / old_max)));
 }
 
 t_complex sum_complex(t_complex a, t_complex b)

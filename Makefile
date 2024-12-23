@@ -36,7 +36,7 @@ $(NAME): $(OBJS)
 
 
 $(NAMEB): $(OBJSB)
-	$(CC)  $(OBJSB) -o $(NAME) $(LDFLAGS)
+	$(CC)  $(OBJSB) -o $(NAMEB) $(LDFLAGS)
 
 %.o: %.c ./includes/fractal.h
 		$(CC) $(CFLAGS) -c $< -o $@
