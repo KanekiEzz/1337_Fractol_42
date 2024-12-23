@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 23:18:51 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/23 16:57:19 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/23 17:51:36 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ int mouse_handler(int button, int x, int y, t_fractal *fractal)
         fractal->zoom *= 0.95;
     else if (button == 4)
         fractal->zoom *= 1.05;
+	else if (button == 3)
+        mlx_hook(fractal->mlx_window, 6, 1L << 6, julia_track, fractal);
+	else if (button == 2)
+		mlx_hook(fractal->mlx_window, 6, 1L << 6, 0, fractal);
 	mlx_clear_window(fractal->mlx_connection, fractal->mlx_window);
     fractal_render(fractal);
     return 0;

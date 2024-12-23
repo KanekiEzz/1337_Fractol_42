@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:50 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/23 16:51:17 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/23 17:00:21 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ void parse_fractal(int ac, char **av, t_fractal *fractal)
     exit(EXIT_FAILURE);
 }
 
-void f(){system("leaks fractol");}
+// void f(){system("leaks fractol");}
 
 int main(int ac, char **av)
 {
-	atexit(f);
+	// atexit(f);
     t_fractal fractal;
 
     parse_fractal(ac, av, &fractal);
