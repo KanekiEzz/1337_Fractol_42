@@ -27,6 +27,7 @@ SRCSB = ./bouns/srcs/fractal.c \
 		./bouns/srcs/lib/ft_putstr.c \
 		./bouns/srcs/lib/ft_strcmp.c \
 		./bouns/srcs/lib/ft_strlen.c \
+		./bouns/srcs/lib/print_usag.c \
 
 OBJS = $(SRCS:.c=.o)
 OBJSB = $(SRCSB:.c=.o)
@@ -49,7 +50,7 @@ clean:
 	$(RM) $(OBJS) $(OBJSB)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(NAMEB)
 
 re: fclean all
 

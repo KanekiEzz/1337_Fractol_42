@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:42 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/24 13:54:43 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/24 14:03:45 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void	ft_putchar(char c);
 int	ft_strcmp(const char *s1, const char *s2);
 double	ft_atof(const char *str);
 size_t	ft_strlen(const char *s);
-
+void print_usag(void);
 
 double	atodbl(char *s);
 
