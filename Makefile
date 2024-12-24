@@ -38,6 +38,25 @@ $(NAME): $(OBJS)
 
 $(NAMEB): $(OBJSB)
 	$(CC)  $(OBJSB) -o $(NAMEB) $(LDFLAGS)
+	@echo "\033[1;34m\
+        ##    ##    ###    ##    ## ######## ##    ## #### \\n\
+        ##   ##    ## ##   ###   ## ##       ##   ##   ##  \\n\
+        ##  ##    ##   ##  ####  ## ##       ##  ##    ##  \\n\
+        #####    ##     ## ## ## ## ######   #####     ##  \\n\
+        ##  ##   ######### ##  #### ##       ##  ##    ##  \\n\
+        ##   ##  ##     ## ##   ### ##       ##   ##   ##  \\n\
+        ##    ## ##     ## ##    ## ######## ##    ## #### \\033[0m\\n\
+		\033[1;32mUsage:\033[0m\\n\
+		\033[1;33m\\n\
+			1:     ./fractol or ./fractol_bonus julia <real> <imaginary>\\n\
+			or\\n\
+			2:     ./fractol or ./fractol_bonus mandelbrot\\n\
+			or\\n\
+			3:     ./fractol or ./fractol_bonus burningship\\n\
+			or\\n\
+			4:     ./fractol or ./fractol_bonus tricorn\\n\
+			or\\n\
+			5:     ./fractol or ./fractol_bonus celtic\\033[0m\\n"
 
 %.o: %.c ./includes/fractal.h
 		$(CC) $(CFLAGS) -c $< -o $@
@@ -54,4 +73,24 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean
+.PHONY: clean print_usage
+print_usage:
+	@echo "\033[1;34m\
+        ##    ##    ###    ##    ## ######## ##    ## #### \\n\
+        ##   ##    ## ##   ###   ## ##       ##   ##   ##  \\n\
+        ##  ##    ##   ##  ####  ## ##       ##  ##    ##  \\n\
+        #####    ##     ## ## ## ## ######   #####     ##  \\n\
+        ##  ##   ######### ##  #### ##       ##  ##    ##  \\n\
+        ##   ##  ##     ## ##   ### ##       ##   ##   ##  \\n\
+        ##    ## ##     ## ##    ## ######## ##    ## #### \\033[0m\\n\
+		\033[1;32mUsage:\033[0m\\n\
+		\033[1;33m\\n\
+			1:     ./fractol or ./fractol_bonus julia <real> <imaginary>\\n\
+			or\\n\
+			2:     ./fractol or ./fractol_bonus mandelbrot\\n\
+			or\\n\
+			3:     ./fractol or ./fractol_bonus burningship\\n\
+			or\\n\
+			4:     ./fractol or ./fractol_bonus tricorn\\n\
+			or\\n\
+			5:     ./fractol or ./fractol_bonus celtic\\033[0m\\n"
