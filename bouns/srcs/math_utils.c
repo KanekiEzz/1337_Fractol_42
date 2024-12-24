@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 15:10:16 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/23 16:57:45 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/24 13:28:16 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ t_complex sum_complex(t_complex a, t_complex b)
     result.y = a.y + b.y;
     return result;
 }
+
+
 
 t_complex square_complex(t_complex a)
 {

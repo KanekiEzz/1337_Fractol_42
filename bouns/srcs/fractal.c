@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:50 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/23 17:00:21 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/24 13:53:37 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,29 @@ void parse_fractal(int ac, char **av, t_fractal *fractal)
 {
     if (ac <= 1)
     {
-        ft_putstr("Usage: ./fractol julia or ./fractol mandelbrot\n");
+		ft_putstr("Usage:\n \t./fractol julia <real> <imaginary>\n  or\n \t./fractol mandelbrot\n  or \n\t./fractol burningship");
         exit(EXIT_FAILURE);
     }
-		if (ac == 2 && !ft_strcmp(av[1], "mandelbrot"))
-		{
-			fractal->name = "mandelbrot";
+	if (ac == 2 && !ft_strcmp(av[1], "mandelbrot"))
+	{
+		fractal->name = "mandelbrot";
+		return ;
+	}
+	if (ac == 2 && !ft_strcmp(av[1], "burningship"))
+	{
+			fractal->name = "burningship";
 			return ;
-		}
+	}
+	if (ac == 2 && !ft_strcmp(av[1], "tricorn"))
+	{
+			fractal->name = "tricorn";
+			return ;
+	}
+	if (ac == 2 && !ft_strcmp(av[1], "celtic"))
+	{
+			fractal->name = "celtic";
+			return ;
+	}
     else if (ac == 4 && ft_strcmp(av[1], "julia") == 0)
     {
         fractal->name = "julia";
@@ -36,7 +51,7 @@ void parse_fractal(int ac, char **av, t_fractal *fractal)
         }
 				return ;
     }
-    ft_putstr("Usage: ./fractol julia <real> <imaginary> or ./fractol mandelbrot\n");
+    ft_putstr("Usage:\n \t./fractol julia <real> <imaginary>\n  or\n \t./fractol mandelbrot\n  or \n\t./fractol burningship");
     exit(EXIT_FAILURE);
 }
 

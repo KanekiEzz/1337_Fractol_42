@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/08 14:47:24 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/23 16:55:40 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/24 13:57:18 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,25 @@ static void	mandel_vs_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 		c->y = z->y;
 	}
 }
+t_complex	absolute(t_complex z)
+{
+	t_complex	res;
 
+	res.x = z.x;
+	res.y = z.y;
+	if (res.x < 0)
+		res.x = -res.x;
+	if (res.y < 0)
+		res.y = -res.y;
+	return (res);
+}
+t_complex conjugate(t_complex z)
+{
+    t_complex result;
+    result.x = z.x;
+    result.y = -z.y;
+    return result;
+}
 static void handel_pixel(int x, int y, t_fractal *fractal)
 {
     t_complex z;
@@ -46,11 +64,23 @@ static void handel_pixel(int x, int y, t_fractal *fractal)
     z.x = (map(x, -2, +2, WIDTH) * fractal->zoom)+ fractal->shift_x ;
     z.y = (map(y, +2, -2, HEIGHT) * fractal->zoom)+ fractal->shift_y;
 
-    mandel_vs_julia(&z, &c, fractal);
+	mandel_vs_julia(&z, &c, fractal);
 
     while (i < fractal->max_iter)
-    {
-        z = sum_complex(square_complex(z), c);
+    {	
+		if (!ft_strcmp(fractal->name, "burningship"))
+			z = sum_complex(square_complex(absolute(z)), c);
+		if (!ft_strcmp(fractal->name, "tricorn"))
+			z = sum_complex(square_complex(conjugate(z)), c);
+		if (!ft_strcmp(fractal->name, "celtic"))
+		{
+    		t_complex squared = square_complex(z);
+    		z.x = fabs(squared.x - squared.x);
+    		z.y = 2 * squared.y * squared.y;
+    		z = sum_complex(z, c);
+		}
+		else
+			z = sum_complex(square_complex(z), c);
         if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
         {
             color = map(i, BLACK, 0x0F030507, 256);

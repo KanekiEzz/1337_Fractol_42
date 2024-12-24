@@ -6,7 +6,7 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 09:32:42 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/23 17:49:48 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/24 13:54:43 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string.h>
 #include <stdio.h>
 //+++++++++end forbidden++++++++
-
+#include <math.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <limits.h>
