@@ -60,12 +60,12 @@ $ make print_usage
 
 Run the executable too see the help message:
 ```shell
-./fractol
+./fractol or fractol_bonus
 ```
 
 Or run with some supported fractal:
 ```shell
-./fractol mandelbrot
+./fractol mandelbrot or fractol_bonus mandelbrot
 ```
 
 # 🌄 Screenshots
