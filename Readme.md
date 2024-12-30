@@ -35,13 +35,10 @@ The program supports the following controls:
 | Key           | Description                             |
 |:-------------:|:---------------------------------------:|
 | ESC           | Close the program window                |
-| Keys [1-6]    | Move to another fractal                 |
-| Keys [Q-Y]    | Change the color of fractal             |
-| Keys [A-H]    | Change the color of fractal             |
+| Keys [(+)-(-)]    | Change the iteration of fractal     |
 | Mouse Scroll  | Zoom in and out of the fractal          |
-| ⬆️ ⬇️ ⬅️ ➡️     | Change the viewpoint                    |
-| Key L         | Lock Julia's fractal                    |
-| Zero          | Reset the fractal to its initial state  |
+| ⬆️ ⬇️ ⬅️ ➡️       | Change the viewpoint                    |
+
 
 ## 👨‍💻 Usage
 ### Requirements
@@ -55,7 +52,8 @@ The program is written in C language and thus needs the **gcc compiler** and som
 To compile the program, run:
 
 ```shell
-$ cd path/to/fractol && make
+$ cd path/to/fractol && make or make bonus
+$	make print_usage
 ```
 
 **2. How to run the program**
