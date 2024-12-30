@@ -81,17 +81,24 @@ Or run with some supported fractal:
 ![Fractal mono-colored Mandelbrot](public/screenshots/mandelbrot1.png)
 ![Fractal red blue and green striped Mandelbrot](public/screenshots/mandelbrot2.png)
 ![Fractal sun crest purple Mandelbrot](public/screenshots/mandelbrot3.png)
+![Fractal sun crest purple Mandelbrot](public/screenshots/mandelbrot11.png)
 
 ## Julia set
 ![Fractal purple green and yellow Julia](public/screenshots/julia1.png)
 ![Fractal red swirl Julia](public/screenshots/julia2.png)
 ![Fractal blue snowflake Julia](public/screenshots/julia3.png)
+![Fractal blue snowflake Julia](public/screenshots/julia12.png)
 
 ## Burning Ship set
 ![Fract-ol golden Burning Ship](public/screenshots/burning_ship.png)
 
 ## Tricorn set
 ![Fract-ol purple Tricorn](public/screenshots/tricorn.png)
+![Fract-ol purple Tricorn](public/screenshots/tricorn11.png)
+
+
+## Celtic set
+![Fract-ol brown tribal Mandelbox](public/screenshots/celtic.png)
 
 ## Mandelbox set
 ![Fract-ol brown tribal Mandelbox](public/screenshots/mandelbox.png)
