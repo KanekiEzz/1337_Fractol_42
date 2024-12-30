@@ -53,7 +53,7 @@ To compile the program, run:
 
 ```shell
 $ cd path/to/fractol && make or make bonus
-$	make print_usage
+$ make print_usage
 ```
 
 **2. How to run the program**
