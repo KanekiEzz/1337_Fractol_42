@@ -4,7 +4,6 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror  -O3
 LDFLAGS = -lmlx -framework OpenGL -framework AppKit -lm -O3
 RM = rm -f
-AR = ar -rc
 
 SRCS =	./mandatory/srcs/fractal.c \
 		./mandatory/srcs/fractal_event.c \
@@ -58,8 +57,11 @@ $(NAMEB): $(OBJSB)
 			or\\n\
 			5:     ./fractol or ./fractol_bonus celtic\\033[0m\\n"
 
-%.o: %.c ./includes/fractal.h
-		$(CC) $(CFLAGS) -c $< -o $@
+./mandatory/%.o: ./mandatory/%.c ./mandatory/includes/fractal.h
+	$(CC) $(CFLAGS) -c $< -o $@
+
+./bouns/%.o: ./bouns/%.c ./bouns/includes/fractal.h
+	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 

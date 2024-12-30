@@ -6,15 +6,15 @@
 /*   By: iezzam <iezzam@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 11:22:54 by iezzam            #+#    #+#             */
-/*   Updated: 2024/12/21 04:36:14 by iezzam           ###   ########.fr       */
+/*   Updated: 2024/12/24 15:15:31 by iezzam           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/fractal.h"
 
-int is_digit(const char *str)
+int	is_digit(const char *str)
 {
-	int check;
+	int	check;
 
 	check = 1;
 	while (*str)
@@ -22,7 +22,7 @@ int is_digit(const char *str)
 		if (!(*str >= '0' && *str <= '9') && *str != '.')
 		{
 			check = 0;
-			break;
+			break ;
 		}
 		check = 1;
 		str++;
@@ -32,59 +32,77 @@ int is_digit(const char *str)
 	return (1);
 }
 
-double chech_point(const char *str)
+double	check_point(const char *str)
 {
-	int point = 0;
+	int	point;
+
+	point = 0;
 	while (*str)
 	{
 		if (*str == '.')
 			point++;
 		str++;
 	}
-	if(point > 1)
-		return 0.0;
-	return 1;
+	if (point > 1)
+		return (0.0);
+	return (1);
 }
 
-double ft_atof(const char *str)
+double	parse_integer_part(const char **str)
 {
-	double result;
-	int sign;
+	double	result;
+
+	result = 0.0;
+	while (**str >= '0' && **str <= '9')
+	{
+		result = (result * 10) + (**str - '0');
+		(*str)++;
+	}
+	return (result);
+}
+
+double	parse_fractional_part(const char **str)
+{
+	double	fraction;
+	double	result;
+
+	fraction = 0.1;
+	result = 0.0;
+	if (**str == '.')
+	{
+		(*str)++;
+		while (**str >= '0' && **str <= '9')
+		{
+			result += (**str - '0') * fraction;
+			fraction *= 0.1;
+			(*str)++;
+		}
+	}
+	return (result);
+}
+
+double	ft_atof(const char *str)
+{
+	double	result;
+	int		sign;
 
 	result = 0.0;
 	sign = 1;
-	if (!*str)
+	if (!*str || !check_point(str))
 		return (3);
 	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
-	if (!(chech_point(str) == 1))
-		return (3);
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
 			sign = -1;
-		if (*(str + 1) == '.')
-			return (1);
 		str++;
 	}
-	if (is_digit(str) == 0 || (*str == '.' && !(*(str + 1) >= '0' && *(str + 1) <= '9')))
+	if (!is_digit(str)
+		|| (*str == '.'
+			&& !(*(str + 1) >= '0' && *(str + 1) <= '9')))
 		return (3);
-	while (*str >= '0' && *str <= '9')
-	{
-		result = (result * 10) + (*str - '0');
-		str++;
-	}
-	if (*str == '.')
-	{
-		str++;
-		double fraction = 0.1;
-		while (*str >= '0' && *str <= '9')
-		{
-			result += (*str - '0') * fraction;
-			fraction *= 0.1;
-			str++;
-		}
-	}
+	result = parse_integer_part(&str);
+	result += parse_fractional_part(&str);
 	return (result * sign);
 }
-
