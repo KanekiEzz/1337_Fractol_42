@@ -72,6 +72,7 @@ Or run with some supported fractal:
 
 # vedio 
 ![Fractal mono-colored julia](public/vedio/JSr07885.gif)
+![Fractal mono-colored julia](public/vedio/Julia-Menge.Zoomfahrt.25p.webm.1080p.vp9.webm)
 
 ## Mandelbrot set
 ![Fractal mono-colored Mandelbrot](public/screenshots/mandelbrot1.png)
