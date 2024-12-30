@@ -72,6 +72,10 @@ Or run with some supported fractal:
 
 # vedio 
 ![Fractal mono-colored julia](public/vedio/JSr07885.gif)
+<video width="640" height="360" controls>
+  <source src="public/vedio/hi.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
 ## Mandelbrot set
 ![Fractal mono-colored Mandelbrot](public/screenshots/mandelbrot1.png)
