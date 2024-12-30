@@ -70,6 +70,9 @@ Or run with some supported fractal:
 
 # 🌄 Screenshots
 
+#vedio 
+![Fractal mono-colored julia](public/vedio/JSr07885.gif)
+
 ## Mandelbrot set
 ![Fractal mono-colored Mandelbrot](public/screenshots/mandelbrot1.png)
 ![Fractal red blue and green striped Mandelbrot](public/screenshots/mandelbrot2.png)
