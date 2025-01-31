@@ -70,7 +70,7 @@ Or run with some supported fractal:
 
 # 🌄 Screenshots
 
-# vedio 
+# video
 ![Fractal mono-colored julia](public/vedio/JSr07885.gif)
 <video width="640" height="360" controls>
   <source src="public/vedio/hi.webm" type="video/webm">
